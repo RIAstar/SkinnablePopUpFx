@@ -59,7 +59,7 @@
         </s:stroke>
     </s:Line>
 
-    <s:VGroup width="100%" height="100%">
+    <s:VGroup width="100%" height="100%" paddingLeft="25" paddingRight="25" paddingTop="25" paddingBottom="25">
         <s:Label text="SkinnablePopUpFx: Alert" fontSize="18" fontWeight="bold"/>
 
         <s:Line width="100%">
@@ -68,9 +68,11 @@
             </s:stroke>
         </s:Line>
 
-        <s:Button label="Show Alert" click="alert.open()"/>
+        <s:Group width="100%" height="150">
+            <s:Button label="Show Alert" click="alert.open()" horizontalCenter="0" verticalCenter="0"/>
+        </s:Group>
 
-        <v:CodeArea properties="{properties}" width="100%" height="50%"
+        <v:CodeArea properties="{properties}" width="100%" height="100%"
                     fontFamily="Courier new" color="0xffffff" contentBackgroundColor="0x272822"/>
     </s:VGroup>
 

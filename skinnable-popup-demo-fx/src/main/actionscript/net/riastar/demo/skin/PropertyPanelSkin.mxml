@@ -37,7 +37,7 @@
         <s:HorizontalLayout gap="25" paddingLeft="15" paddingRight="15" paddingTop="15" paddingBottom="15"/>
     </s:layout>
 
-    <s:VGroup gap="25">
+    <s:VGroup gap="12">
         <s:Label text="Properties" fontSize="16" fontWeight="bold"/>
 
         <s:VGroup>
@@ -55,8 +55,14 @@
 
         <s:VGroup>
             <s:Label text="text" fontWeight="bold"/>
-            <s:TextInput text="@{hostComponent.text}"/>
+            <s:TextArea text="@{hostComponent.text}" heightInLines="3"/>
         </s:VGroup>
+
+        <s:Line width="100%">
+            <s:stroke>
+                <s:SolidColorStroke color="0xdddddd"/>
+            </s:stroke>
+        </s:Line>
 
         <s:VGroup>
             <s:Label text="committable" fontWeight="bold"/>
@@ -82,6 +88,12 @@
             </s:HGroup>
         </s:VGroup>
 
+        <s:Line width="100%">
+            <s:stroke>
+                <s:SolidColorStroke color="0xdddddd"/>
+            </s:stroke>
+        </s:Line>
+
         <s:VGroup>
             <s:Label text="commitLabel" fontWeight="bold"/>
             <s:TextInput text="@{hostComponent.commitLabel}"/>
@@ -96,6 +108,12 @@
             <s:Label text="cancelLabel" fontWeight="bold"/>
             <s:TextInput text="@{hostComponent.cancelLabel}"/>
         </s:VGroup>
+
+        <s:Line width="100%">
+            <s:stroke>
+                <s:SolidColorStroke color="0xdddddd"/>
+            </s:stroke>
+        </s:Line>
 
         <s:VGroup>
             <s:Label text="Maximum PopUp width" fontWeight="bold"/>
