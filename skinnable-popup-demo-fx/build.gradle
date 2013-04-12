@@ -1,0 +1,9 @@
+type = 'swf'
+
+mainClass = 'net.riastar.demo.SkinnablePopUpDemo'
+
+dependencies {
+	merged project(':skinnable-popup-fx')
+    theme  project(':skinnable-popup-spark-fx')
+}
+

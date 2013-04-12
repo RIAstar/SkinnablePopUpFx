@@ -1,0 +1,51 @@
+import org.apache.ivy.plugins.resolver.URLResolver
+
+buildscript {
+    repositories.mavenCentral()
+    dependencies.classpath 'org.gradlefx:gradlefx:0.6.4'
+}
+
+allprojects {
+    apply plugin: 'idea'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.1'
+}
+
+subprojects {
+    apply plugin: 'gradlefx'
+    apply plugin: 'scaffold'
+    apply plugin: 'maven'
+
+    repositories {
+        add(new URLResolver()) {
+            name = 'Apache'
+            addArtifactPattern 'http://apache.cu.be/flex/4.9.1/binaries/[module]-[revision]-bin.[ext]'
+        }
+    }
+
+    dependencies {
+        flexSDK 'org.apache:apache-flex-sdk:4.9.1@zip'
+    }
+
+    sdkAutoInstall {
+        showPrompts = false
+    }
+
+}
+
+gradle.afterProject { project ->
+    if (project.hasProperty('type') && project.type.isLib()) {
+        project.uploadArchives {
+            repositories.mavenDeployer {
+                repository url: "file://${System.getProperty('user.home')}/.m2/repository/"
+
+                pom.project {
+                    name project.name
+                    groupId 'net.riastar.components'
+                }
+            }
+        }
+    }
+}

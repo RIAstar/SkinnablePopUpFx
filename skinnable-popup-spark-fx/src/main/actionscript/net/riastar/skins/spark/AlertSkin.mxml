@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009"
+             xmlns:s="library://ns.adobe.com/flex/spark"
+             visible.closed="false">
+
+    <fx:Metadata>
+        [HostComponent("net.riastar.components.Alert")]
+    </fx:Metadata>
+
+    <fx:Script>
+        <![CDATA[
+        import mx.core.FlexVersion;
+
+
+        static private const exclusions:Array = ["background", "titleDisplay", "textDisplay", "border"];
+
+        static private const exclusions_4_0:Array = ["background", "titleDisplay", "textDisplay"];
+
+        private var cornerRadius:Number;
+
+        override public function get colorizeExclusions():Array {
+            return FlexVersion.compatibilityVersion < FlexVersion.VERSION_4_5 ? exclusions_4_0 : exclusions;
+        }
+
+        override protected function initializationComplete():void {
+            useChromeColor = true;
+            super.initializationComplete();
+        }
+
+        override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void {
+            if (getStyle("borderVisible") == true) {
+                border.visible = true;
+                background.left = background.top = background.right = background.bottom = 1;
+                content.left = content.top = content.right = 1;
+            }
+            else {
+                border.visible = false;
+                background.left = background.top = background.right = background.bottom = 0;
+                content.left = content.top = content.right = 0;
+            }
+
+            dropShadow.visible = getStyle("dropShadowVisible");
+
+            var cr:Number = getStyle("cornerRadius");
+
+            if (cornerRadius != cr) {
+                cornerRadius = cr;
+
+                dropShadow.tlRadius = cornerRadius;
+                dropShadow.trRadius = cornerRadius;
+                dropShadow.blRadius = cornerRadius;
+                dropShadow.brRadius = cornerRadius;
+
+                setPartCornerRadii(border);
+                setPartCornerRadii(background);
+                tbFill.topLeftRadiusX = cornerRadius;
+                tbFill.topRightRadiusX = cornerRadius;
+                tbHilite.topLeftRadiusX = cornerRadius;
+                tbHilite.topRightRadiusX = cornerRadius;
+            }
+
+            borderStroke.color = getStyle("borderColor");
+            borderStroke.alpha = getStyle("borderAlpha");
+            backgroundFill.color = getStyle("backgroundColor");
+            backgroundFill.alpha = getStyle("backgroundAlpha");
+
+            super.updateDisplayList(unscaledWidth, unscaledHeight);
+        }
+
+        private function setPartCornerRadii(target:Rect):void {
+            target.topLeftRadiusX = cornerRadius;
+            target.topRightRadiusX = cornerRadius;
+            target.bottomLeftRadiusX = cornerRadius;
+            target.bottomRightRadiusX = cornerRadius;
+        }
+        ]]>
+    </fx:Script>
+
+    <s:states>
+        <s:State name="open"/>
+        <s:State name="closed"/>
+    </s:states>
+
+    <s:transitions>
+        <s:Transition fromState="*" toState="*" autoReverse="true">
+            <s:Fade duration="150" target="{this}"/>
+        </s:Transition>
+    </s:transitions>
+
+    <s:RectangularDropShadow id="dropShadow" left="0" top="0" right="0" bottom="0"
+                             color="0x000000" alpha=".32" blurX="20" blurY="20" distance="11" angle="90"/>
+
+    <s:Rect id="background" left="1" right="1" top="1" bottom="1">
+        <s:fill>
+            <s:SolidColor id="backgroundFill" color="0xffffff"/>
+        </s:fill>
+    </s:Rect>
+
+    <s:Rect id="border" left="0" right="0" top="0" bottom="0">
+        <s:stroke>
+            <s:SolidColorStroke id="borderStroke" color="0x000000"/>
+        </s:stroke>
+    </s:Rect>
+
+    <s:VGroup id="content" gap="0" left="0" right="0" top="0" bottom="0">
+        <s:Group width="100%" height="31">
+            <s:Rect id="tbFill" left="0" right="0" top="0" bottom="1">
+                <s:fill>
+                    <s:LinearGradient rotation="90">
+                        <s:GradientEntry color="0xE2E2E2"/>
+                        <s:GradientEntry color="0xD9D9D9"/>
+                    </s:LinearGradient>
+                </s:fill>
+            </s:Rect>
+
+            <s:Rect id="tbHilite" left="0" right="0" top="0" bottom="0">
+                <s:stroke>
+                    <s:LinearGradientStroke rotation="90" weight="1">
+                        <s:GradientEntry color="0xEAEAEA"/>
+                        <s:GradientEntry color="0xD9D9D9"/>
+                    </s:LinearGradientStroke>
+                </s:stroke>
+            </s:Rect>
+
+            <s:Rect id="tbDiv" left="0" right="0" height="1" bottom="0">
+                <s:fill>
+                    <s:SolidColor color="0xC0C0C0"/>
+                </s:fill>
+            </s:Rect>
+
+            <s:Label id="titleDisplay" maxDisplayedLines="1"
+                     left="9" right="9" top="1" bottom="0" minHeight="30"
+                     verticalAlign="middle" textAlign="start" fontWeight="bold"/>
+        </s:Group>
+
+        <s:RichText id="textDisplay" width="100%" height="100%"
+                    paddingLeft="9" paddingRight="9" paddingTop="9" paddingBottom="9"/>
+
+        <s:HGroup id="buttonGroup" width="100%" horizontalAlign="center"
+                  paddingLeft="9" paddingRight="9" paddingBottom="9">
+
+            <s:Button id="commitButton"/>
+            <s:Button id="discardButton"/>
+            <s:Button id="cancelButton"/>
+        </s:HGroup>
+    </s:VGroup>
+
+</s:SparkSkin>
+

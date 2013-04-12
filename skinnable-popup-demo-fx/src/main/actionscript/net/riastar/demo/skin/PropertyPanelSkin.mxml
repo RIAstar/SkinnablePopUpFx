@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<!--
+  - Copyright (c) 2013 Maxime Cowez a.k.a. RIAstar.
+  -
+  - Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+  - documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
+  - rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+  - permit persons to whom the Software is furnished to do so, subject to the following conditions:
+  -
+  - The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
+  - Software.
+  -
+  - THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+  - WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
+  - OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+  - OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  -->
+
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009"
+        xmlns:s="library://ns.adobe.com/flex/spark"
+        xmlns:mx="library://ns.adobe.com/flex/mx">
+
+    <fx:Metadata>
+        [HostComponent("net.riastar.demo.view.PropertyPanel")]
+    </fx:Metadata>
+
+    <fx:Declarations>
+        <s:RadioButtonGroup id="modalRadio" selectedValue="@{hostComponent.modal}"/>
+        <s:RadioButtonGroup id="committableRadio" selectedValue="@{hostComponent.committable}"/>
+        <s:RadioButtonGroup id="discardableRadio" selectedValue="@{hostComponent.discardable}"/>
+        <s:RadioButtonGroup id="cancelableRadio" selectedValue="@{hostComponent.cancelable}"/>
+        <s:RadioButtonGroup id="borderVisibleRadio" selectedValue="@{hostComponent.borderVisible}"/>
+        <s:RadioButtonGroup id="dropShadowVisibleRadio" selectedValue="@{hostComponent.dropShadowVisible}"/>
+    </fx:Declarations>
+
+    <s:layout>
+        <s:HorizontalLayout gap="25" paddingLeft="15" paddingRight="15" paddingTop="15" paddingBottom="15"/>
+    </s:layout>
+
+    <s:VGroup gap="25">
+        <s:Label text="Properties" fontSize="16" fontWeight="bold"/>
+
+        <s:VGroup>
+            <s:Label text="modal" fontWeight="bold"/>
+            <s:HGroup>
+                <s:RadioButton label="true" value="{true}" groupName="modalRadio"/>
+                <s:RadioButton label="false" value="{false}" groupName="modalRadio"/>
+            </s:HGroup>
+        </s:VGroup>
+
+        <s:VGroup>
+            <s:Label text="title" fontWeight="bold"/>
+            <s:TextInput text="@{hostComponent.title}"/>
+        </s:VGroup>
+
+        <s:VGroup>
+            <s:Label text="text" fontWeight="bold"/>
+            <s:TextInput text="@{hostComponent.text}"/>
+        </s:VGroup>
+
+        <s:VGroup>
+            <s:Label text="committable" fontWeight="bold"/>
+            <s:HGroup>
+                <s:RadioButton label="true" value="{true}" groupName="committableRadio"/>
+                <s:RadioButton label="false" value="{false}" groupName="committableRadio"/>
+            </s:HGroup>
+        </s:VGroup>
+
+        <s:VGroup>
+            <s:Label text="discardable" fontWeight="bold"/>
+            <s:HGroup>
+                <s:RadioButton label="true" value="{true}" groupName="discardableRadio"/>
+                <s:RadioButton label="false" value="{false}" groupName="discardableRadio"/>
+            </s:HGroup>
+        </s:VGroup>
+
+        <s:VGroup>
+            <s:Label text="cancelable" fontWeight="bold"/>
+            <s:HGroup>
+                <s:RadioButton label="true" value="{true}" groupName="cancelableRadio"/>
+                <s:RadioButton label="false" value="{false}" groupName="cancelableRadio"/>
+            </s:HGroup>
+        </s:VGroup>
+
+        <s:VGroup>
+            <s:Label text="commitLabel" fontWeight="bold"/>
+            <s:TextInput text="@{hostComponent.commitLabel}"/>
+        </s:VGroup>
+
+        <s:VGroup>
+            <s:Label text="discardLabel" fontWeight="bold"/>
+            <s:TextInput text="@{hostComponent.discardLabel}"/>
+        </s:VGroup>
+
+        <s:VGroup>
+            <s:Label text="cancelLabel" fontWeight="bold"/>
+            <s:TextInput text="@{hostComponent.cancelLabel}"/>
+        </s:VGroup>
+
+        <s:VGroup>
+            <s:Label text="Maximum PopUp width" fontWeight="bold"/>
+            <s:NumericStepper minimum="150" maximum="500" value="@{hostComponent.maxPopUpWidth}"/>
+        </s:VGroup>
+    </s:VGroup>
+
+    <s:Line height="100%">
+        <s:stroke>
+            <s:SolidColorStroke color="0xdddddd"/>
+        </s:stroke>
+    </s:Line>
+
+    <s:VGroup gap="25">
+        <s:Label text="Styles" fontSize="16" fontWeight="bold"/>
+
+        <s:VGroup>
+            <s:Label text="backgroundAlpha" fontWeight="bold"/>
+            <s:HSlider minimum=".1" maximum="1" stepSize=".1" value="@{hostComponent.backgroundAlpha}"/>
+        </s:VGroup>
+
+        <s:VGroup>
+            <s:Label text="backgroundColor" fontWeight="bold"/>
+            <s:HGroup verticalAlign="bottom">
+                <mx:ColorPicker selectedColor="@{hostComponent.backgroundColor}"/>
+                <s:Label text="#{hostComponent.backgroundColor.toString(16)}" fontFamily="Courier New"/>
+            </s:HGroup>
+        </s:VGroup>
+
+        <s:VGroup>
+            <s:Label text="borderAlpha" fontWeight="bold"/>
+            <s:HSlider minimum=".1" maximum="1" stepSize=".1" value="@{hostComponent.borderAlpha}"/>
+        </s:VGroup>
+
+        <s:VGroup>
+            <s:Label text="borderColor" fontWeight="bold"/>
+            <s:HGroup verticalAlign="bottom">
+                <mx:ColorPicker selectedColor="@{hostComponent.borderColor}"/>
+                <s:Label text="#{hostComponent.borderColor.toString(16)}" fontFamily="Courier New"/>
+            </s:HGroup>
+        </s:VGroup>
+
+        <s:VGroup>
+            <s:Label text="borderVisible" fontWeight="bold"/>
+            <s:HGroup>
+                <s:RadioButton label="true" value="{true}" groupName="borderVisibleRadio"/>
+                <s:RadioButton label="false" value="{false}" groupName="borderVisibleRadio"/>
+            </s:HGroup>
+        </s:VGroup>
+
+        <s:VGroup>
+            <s:Label text="cornerRadius" fontWeight="bold"/>
+            <s:HSlider minimum="0" maximum="15" stepSize="1" value="@{hostComponent.cornerRadius}"/>
+        </s:VGroup>
+
+        <s:VGroup>
+            <s:Label text="dropShadowVisible" fontWeight="bold"/>
+            <s:HGroup>
+                <s:RadioButton label="true" value="{true}" groupName="dropShadowVisibleRadio"/>
+                <s:RadioButton label="false" value="{false}" groupName="dropShadowVisibleRadio"/>
+            </s:HGroup>
+        </s:VGroup>
+    </s:VGroup>
+
+</s:Skin>

@@ -1,0 +1,10 @@
+type = 'swc'
+version = 'SNAPSHOT'
+
+def stylePath = projectDir.path + '/src/main/resources/'
+
+dependencies {
+    external project(':skinnable-popup-fx')
+}
+
+additionalCompilerOptions.add("-include-stylesheet=defaults.css,${stylePath}defaults.css")

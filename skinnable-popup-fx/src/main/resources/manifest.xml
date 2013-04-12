@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<componentPackage>
+
+    <component id="Alert" class="net.riastar.components.Alert"/>
+    <component id="SkinnablePopUp" class="net.riastar.components.SkinnablePopUp"/>
+
+</componentPackage>
