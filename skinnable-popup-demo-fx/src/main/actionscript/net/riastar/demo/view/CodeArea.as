@@ -23,6 +23,8 @@ package net.riastar.demo.view {
 
 import mx.events.PropertyChangeEvent;
 
+import net.riastar.demo.skin.CustomAlertSkin;
+
 import spark.components.TextArea;
 
 
@@ -70,20 +72,24 @@ public class CodeArea extends TextArea {
             props.push('cancelLabel="' + properties.cancelLabel + '"');
 
         //styles
-        if (properties.backgroundAlpha != 1)
-            props.push('backgroundAlpha="' + properties.backgroundAlpha + '"');
-        if (properties.backgroundColor != 0xffffff)
-            props.push('backgroundColor="0x' + properties.backgroundColor.toString(16) + '"');
-        if (properties.borderAlpha != .5)
-            props.push('borderAlpha="' + properties.borderAlpha + '"');
-        if (properties.borderColor != 0x000000)
-            props.push('borderColor="0x' + properties.borderColor.toString(16) + '"');
-        if (properties.borderVisible == false)
-            props.push('borderVisible="false"');
-        if (properties.cornerRadius != 0)
-            props.push('cornerRadius="' + properties.cornerRadius + '"');
-        if (properties.dropShadowVisible == false)
-            props.push('dropShadowVisible="false"');
+        if (properties._skinClass == CustomAlertSkin)
+            props.push('skinClass="net.riastar.demo.skin.CustomAlertSkin"');
+        else {
+            if (properties.backgroundAlpha != 1)
+                props.push('backgroundAlpha="' + properties.backgroundAlpha + '"');
+            if (properties.backgroundColor != 0xffffff)
+                props.push('backgroundColor="0x' + properties.backgroundColor.toString(16) + '"');
+            if (properties.borderAlpha != .5)
+                props.push('borderAlpha="' + properties.borderAlpha + '"');
+            if (properties.borderColor != 0x000000)
+                props.push('borderColor="0x' + properties.borderColor.toString(16) + '"');
+            if (properties.borderVisible == false)
+                props.push('borderVisible="false"');
+            if (properties.cornerRadius != 0)
+                props.push('cornerRadius="' + properties.cornerRadius + '"');
+            if (properties.dropShadowVisible == false)
+                props.push('dropShadowVisible="false"');
+        }
 
         text = props.join("\n          ") + ' />';
     }

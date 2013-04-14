@@ -38,6 +38,7 @@
                   commitLabel="{properties.commitLabel}"
                   cancelLabel="{properties.cancelLabel}"
                   discardLabel="{properties.discardLabel}"
+                  skinClass="{properties._skinClass}"
                   backgroundAlpha="{properties.backgroundAlpha}"
                   backgroundColor="{properties.backgroundColor}"
                   borderAlpha="{properties.borderAlpha}"

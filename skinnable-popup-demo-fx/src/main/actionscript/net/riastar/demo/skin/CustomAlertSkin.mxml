@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009"
+        xmlns:s="library://ns.adobe.com/flex/spark"
+        visible.closed="false">
+
+    <fx:Metadata>
+        [HostComponent("net.riastar.components.Alert")]
+    </fx:Metadata>
+
+    <s:states>
+        <s:State name="open"/>
+        <s:State name="closed"/>
+    </s:states>
+
+    <s:transitions>
+        <s:Transition fromState="*" toState="*" autoReverse="true">
+            <s:Fade duration="150" target="{this}"/>
+        </s:Transition>
+    </s:transitions>
+
+    <s:Rect id="shadow" left="1" right="1" top="1" bottom="4" radiusX="5" radiusY="5">
+        <s:fill>
+            <s:SolidColor/>
+        </s:fill>
+        <s:filters>
+            <s:DropShadowFilter color="0xbbbbbb" alpha="1" distance="4" angle="90" blurX="7" blurY="7"/>
+        </s:filters>
+    </s:Rect>
+
+    <s:Rect left="0" right="0" top="0" bottom="0" radiusX="5" radiusY="5">
+        <s:fill>
+            <s:SolidColor color="0x333333"/>
+        </s:fill>
+    </s:Rect>
+
+    <s:VGroup color="0xffffff" gap="20" left="20" right="20" top="20" bottom="20">
+        <s:Label id="titleDisplay" fontSize="18" fontWeight="bold"/>
+        <s:RichText id="textDisplay" width="100%"/>
+
+        <s:HGroup horizontalAlign="center" width="100%">
+            <s:Button id="commitButton" skinClass="net.riastar.demo.skin.LinkButtonSkin"/>
+            <s:Button id="discardButton" skinClass="net.riastar.demo.skin.LinkButtonSkin"/>
+            <s:Button id="cancelButton" skinClass="net.riastar.demo.skin.LinkButtonSkin"/>
+        </s:HGroup>
+    </s:VGroup>
+
+</s:Skin>

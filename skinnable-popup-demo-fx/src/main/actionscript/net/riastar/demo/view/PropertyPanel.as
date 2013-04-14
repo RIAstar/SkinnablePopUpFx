@@ -20,6 +20,8 @@
  */
 package net.riastar.demo.view {
 
+import net.riastar.skins.spark.AlertSkin;
+
 import spark.components.supportClasses.SkinnableComponent;
 
 
@@ -71,6 +73,9 @@ public class PropertyPanel extends SkinnableComponent {
 
 
     //styles
+
+    [Bindable]
+    public var _skinClass:* = AlertSkin;
 
     [Bindable]
     public var backgroundAlpha:Number = 1;

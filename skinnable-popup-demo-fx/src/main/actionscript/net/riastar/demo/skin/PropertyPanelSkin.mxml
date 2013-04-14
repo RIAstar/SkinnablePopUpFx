@@ -24,11 +24,18 @@
         [HostComponent("net.riastar.demo.view.PropertyPanel")]
     </fx:Metadata>
 
+    <fx:Script>
+        <![CDATA[
+        import net.riastar.skins.spark.AlertSkin;
+        ]]>
+    </fx:Script>
+
     <fx:Declarations>
         <s:RadioButtonGroup id="modalRadio" selectedValue="@{hostComponent.modal}"/>
         <s:RadioButtonGroup id="committableRadio" selectedValue="@{hostComponent.committable}"/>
         <s:RadioButtonGroup id="discardableRadio" selectedValue="@{hostComponent.discardable}"/>
         <s:RadioButtonGroup id="cancelableRadio" selectedValue="@{hostComponent.cancelable}"/>
+        <s:RadioButtonGroup id="skinClassRadio" selectedValue="@{hostComponent._skinClass}"/>
         <s:RadioButtonGroup id="borderVisibleRadio" selectedValue="@{hostComponent.borderVisible}"/>
         <s:RadioButtonGroup id="dropShadowVisibleRadio" selectedValue="@{hostComponent.dropShadowVisible}"/>
     </fx:Declarations>
@@ -131,50 +138,62 @@
         <s:Label text="Styles" fontSize="16" fontWeight="bold"/>
 
         <s:VGroup>
-            <s:Label text="backgroundAlpha" fontWeight="bold"/>
-            <s:HSlider minimum=".1" maximum="1" stepSize=".1" value="@{hostComponent.backgroundAlpha}"/>
-        </s:VGroup>
-
-        <s:VGroup>
-            <s:Label text="backgroundColor" fontWeight="bold"/>
-            <s:HGroup verticalAlign="bottom">
-                <mx:ColorPicker selectedColor="@{hostComponent.backgroundColor}"/>
-                <s:Label text="#{hostComponent.backgroundColor.toString(16)}" fontFamily="Courier New"/>
-            </s:HGroup>
-        </s:VGroup>
-
-        <s:VGroup>
-            <s:Label text="borderAlpha" fontWeight="bold"/>
-            <s:HSlider minimum=".1" maximum="1" stepSize=".1" value="@{hostComponent.borderAlpha}"/>
-        </s:VGroup>
-
-        <s:VGroup>
-            <s:Label text="borderColor" fontWeight="bold"/>
-            <s:HGroup verticalAlign="bottom">
-                <mx:ColorPicker selectedColor="@{hostComponent.borderColor}"/>
-                <s:Label text="#{hostComponent.borderColor.toString(16)}" fontFamily="Courier New"/>
-            </s:HGroup>
-        </s:VGroup>
-
-        <s:VGroup>
-            <s:Label text="borderVisible" fontWeight="bold"/>
+            <s:Label text="skinClass" fontWeight="bold"/>
             <s:HGroup>
-                <s:RadioButton label="true" value="{true}" groupName="borderVisibleRadio"/>
-                <s:RadioButton label="false" value="{false}" groupName="borderVisibleRadio"/>
+                <s:RadioButton label="default" value="{AlertSkin}"
+                               groupName="skinClassRadio"/>
+                <s:RadioButton label="custom" value="{CustomAlertSkin}"
+                               groupName="skinClassRadio"/>
             </s:HGroup>
         </s:VGroup>
 
-        <s:VGroup>
-            <s:Label text="cornerRadius" fontWeight="bold"/>
-            <s:HSlider minimum="0" maximum="15" stepSize="1" value="@{hostComponent.cornerRadius}"/>
-        </s:VGroup>
+        <s:VGroup gap="25" enabled="{skinClassRadio.selectedValue == AlertSkin}">
+            <s:VGroup>
+                <s:Label text="backgroundAlpha" fontWeight="bold"/>
+                <s:HSlider minimum=".1" maximum="1" stepSize=".1" value="@{hostComponent.backgroundAlpha}"/>
+            </s:VGroup>
 
-        <s:VGroup>
-            <s:Label text="dropShadowVisible" fontWeight="bold"/>
-            <s:HGroup>
-                <s:RadioButton label="true" value="{true}" groupName="dropShadowVisibleRadio"/>
-                <s:RadioButton label="false" value="{false}" groupName="dropShadowVisibleRadio"/>
-            </s:HGroup>
+            <s:VGroup>
+                <s:Label text="backgroundColor" fontWeight="bold"/>
+                <s:HGroup verticalAlign="bottom">
+                    <mx:ColorPicker selectedColor="@{hostComponent.backgroundColor}"/>
+                    <s:Label text="#{hostComponent.backgroundColor.toString(16)}" fontFamily="Courier New"/>
+                </s:HGroup>
+            </s:VGroup>
+
+            <s:VGroup>
+                <s:Label text="borderAlpha" fontWeight="bold"/>
+                <s:HSlider minimum=".1" maximum="1" stepSize=".1" value="@{hostComponent.borderAlpha}"/>
+            </s:VGroup>
+
+            <s:VGroup>
+                <s:Label text="borderColor" fontWeight="bold"/>
+                <s:HGroup verticalAlign="bottom">
+                    <mx:ColorPicker selectedColor="@{hostComponent.borderColor}"/>
+                    <s:Label text="#{hostComponent.borderColor.toString(16)}" fontFamily="Courier New"/>
+                </s:HGroup>
+            </s:VGroup>
+
+            <s:VGroup>
+                <s:Label text="borderVisible" fontWeight="bold"/>
+                <s:HGroup>
+                    <s:RadioButton label="true" value="{true}" groupName="borderVisibleRadio"/>
+                    <s:RadioButton label="false" value="{false}" groupName="borderVisibleRadio"/>
+                </s:HGroup>
+            </s:VGroup>
+
+            <s:VGroup>
+                <s:Label text="cornerRadius" fontWeight="bold"/>
+                <s:HSlider minimum="0" maximum="15" stepSize="1" value="@{hostComponent.cornerRadius}"/>
+            </s:VGroup>
+
+            <s:VGroup>
+                <s:Label text="dropShadowVisible" fontWeight="bold"/>
+                <s:HGroup>
+                    <s:RadioButton label="true" value="{true}" groupName="dropShadowVisibleRadio"/>
+                    <s:RadioButton label="false" value="{false}" groupName="dropShadowVisibleRadio"/>
+                </s:HGroup>
+            </s:VGroup>
         </s:VGroup>
     </s:VGroup>
 
