@@ -74,17 +74,14 @@ public class SkinnablePopUp extends SkinnableComponent {
     private var _position:IPopUpPosition;
     public function get position():IPopUpPosition { return _position; }
     public function set position(value:IPopUpPosition):void {
+        positionDirty = _position != value;
         _position = value;
-        updatePopUpPosition();
-    }
-
-    override public function set initialized(value:Boolean):void {
-        super.initialized = value;
-        updatePopUpPosition();
+        invalidateDisplayList();
     }
 
     private var closeEvent:PopUpEvent;
     private var addedToPopUpManager:Boolean;
+    private var positionDirty:Boolean = true;
 
 
     /* -------------------- */
@@ -128,7 +125,9 @@ public class SkinnablePopUp extends SkinnableComponent {
         if (!addedToPopUpManager) {
             addedToPopUpManager = true;
             PopUpManager.addPopUp(this, owner, modal);
-            updatePopUpPosition();
+
+            positionDirty = true;
+            invalidateDisplayList();
         }
     }
 
@@ -136,8 +135,13 @@ public class SkinnablePopUp extends SkinnableComponent {
         dispatchEvent(new PopUpEvent(PopUpEvent.OPEN));
     }
 
-    public function updatePopUpPosition():void {
-        if (initialized && addedToPopUpManager && _position) _position.update(this);
+    override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void {
+        super.updateDisplayList(unscaledWidth, unscaledHeight);
+
+        if (addedToPopUpManager && _position && positionDirty) {
+            _position.update(this);
+            positionDirty = false;
+        }
     }
 
     public function close(commit:Boolean = false, data:* = undefined):void {
