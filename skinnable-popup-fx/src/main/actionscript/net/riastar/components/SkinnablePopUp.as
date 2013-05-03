@@ -43,6 +43,7 @@ use namespace mx_internal;
 [Style(name="borderAlpha", type="Number", inherit="no", theme="spark")]
 [Style(name="borderColor", type="uint", format="Color", inherit="no", theme="spark")]
 [Style(name="borderVisible", type="Boolean", inherit="no", theme="spark")]
+[Style(name="color", type="uint", format="Color", inherit="yes", theme="spark")]
 [Style(name="cornerRadius", type="Number", format="Length", inherit="no", theme="spark")]
 [Style(name="dropShadowVisible", type="Boolean", inherit="no", theme="spark")]
 

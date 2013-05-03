@@ -96,6 +96,9 @@ public class PropertyPanel extends SkinnableComponent {
     public var cornerRadius:Number = 0;
 
     [Bindable]
+    public var color:uint = 0x000000;
+
+    [Bindable]
     public var dropShadowVisible:Boolean = true;
 
 }

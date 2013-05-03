@@ -45,6 +45,7 @@
                   borderColor="{properties.borderColor}"
                   borderVisible="{properties.borderVisible}"
                   cornerRadius="{properties.cornerRadius}"
+                  color="{properties.color}"
                   dropShadowVisible="{properties.dropShadowVisible}"/>
     </fx:Declarations>
 

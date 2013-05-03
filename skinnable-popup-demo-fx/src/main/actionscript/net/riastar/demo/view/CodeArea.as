@@ -87,6 +87,8 @@ public class CodeArea extends TextArea {
                 props.push('borderVisible="false"');
             if (properties.cornerRadius != 0)
                 props.push('cornerRadius="' + properties.cornerRadius + '"');
+            if (properties.color != 0x000000)
+                props.push('color="0x' + properties.color.toString(16) + '"');
             if (properties.dropShadowVisible == false)
                 props.push('dropShadowVisible="false"');
         }

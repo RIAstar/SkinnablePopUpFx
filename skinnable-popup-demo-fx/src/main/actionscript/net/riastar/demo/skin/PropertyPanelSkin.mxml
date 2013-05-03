@@ -188,6 +188,14 @@
             </s:VGroup>
 
             <s:VGroup>
+                <s:Label text="color" fontWeight="bold"/>
+                <s:HGroup verticalAlign="bottom">
+                    <mx:ColorPicker selectedColor="@{hostComponent.color}"/>
+                    <s:Label text="#{hostComponent.color.toString(16)}" fontFamily="Courier New"/>
+                </s:HGroup>
+            </s:VGroup>
+
+            <s:VGroup>
                 <s:Label text="dropShadowVisible" fontWeight="bold"/>
                 <s:HGroup>
                     <s:RadioButton label="true" value="{true}" groupName="dropShadowVisibleRadio"/>
