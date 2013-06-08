@@ -18,7 +18,7 @@
 
 <componentPackage>
 
-    <component id="Alert" class="net.riastar.components.Alert"/>
+    <component id="Alert" class="net.riastar.components.AlertDelegate"/>
     <component id="SkinnablePopUp" class="net.riastar.components.SkinnablePopUp"/>
 
 </componentPackage>
