@@ -33,11 +33,7 @@
         <s:State name="closed"/>
     </s:states>
 
-    <!--
-    When the popup has just been opened, the List doesn't measure its height correctly;
-    this is why we set a 'minHeight' on the List as a quick workaround.
-     -->
-    <s:List id="messageList" includeIn="open" left="0" right="0" top="0" bottom="0" minHeight="150"
+    <s:List id="messageList" includeIn="open" left="0" right="0" top="0" bottom="0"
             borderVisible="false" contentBackgroundAlpha="0"
             horizontalScrollPolicy="off" verticalScrollPolicy="off"
             itemRenderer="net.riastar.skins.spark.ToastRenderer">

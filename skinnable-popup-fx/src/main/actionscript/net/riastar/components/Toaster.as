@@ -31,13 +31,13 @@ import mx.core.IFactory;
 import mx.core.IVisualElement;
 import mx.effects.Effect;
 import mx.events.EffectEvent;
+import mx.events.ResizeEvent;
 
-import net.riastar.components.supportClasses.PopUpCenteredPosition;
+import net.riastar.components.supportClasses.PopUpAbsolutePosition;
 
 import spark.components.DataGroup;
 import spark.components.supportClasses.ListBase;
 import spark.events.IndexChangeEvent;
-import spark.events.PopUpEvent;
 import spark.events.RendererExistenceEvent;
 import spark.events.SkinPartEvent;
 
@@ -94,7 +94,7 @@ public class Toaster extends SkinnablePopUp {
     /* -------------------- */
 
     override public function initialize():void {
-        position = new PopUpCenteredPosition();
+        position = new PopUpAbsolutePosition();
         super.initialize();
     }
 
@@ -120,6 +120,7 @@ public class Toaster extends SkinnablePopUp {
         else _itemRenderer = messageList.itemRenderer;
 
         messageList.addEventListener(IndexChangeEvent.CHANGE, handleMessageSelection);
+        messageList.addEventListener(ResizeEvent.RESIZE, handleListResize);
         messageList.addEventListener(SkinPartEvent.PART_ADDED, initRendererListeners);
     }
 
@@ -143,6 +144,10 @@ public class Toaster extends SkinnablePopUp {
         var timer:Timer = event.currentTarget as Timer;
         removeToast(timerMap[timer], true);
         destroyTimer(timer);
+    }
+
+    private function handleListResize(event:ResizeEvent):void {
+        position.update(this);
     }
 
     private function handleItemRendererAdded(event:RendererExistenceEvent):void {

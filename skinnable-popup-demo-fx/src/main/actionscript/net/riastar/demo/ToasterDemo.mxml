@@ -49,7 +49,7 @@
             Donec vel elit nulla. Etiam nec magna eu arcu convallis bibendum.
         </fx:String>
 
-        <rs:Toaster id="toaster" width="150"/>
+        <rs:Toaster id="toaster" width="150" horizontalCenter="0" bottom="50"/>
     </fx:Declarations>
 
     <s:Button label="toast a message" click="toast()"/>
