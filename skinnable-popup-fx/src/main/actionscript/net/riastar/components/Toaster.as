@@ -208,5 +208,25 @@ public class Toaster extends SkinnablePopUp {
         messages.length ? open() : close();
     }
 
+
+    /* ------------------- */
+    /* --- destruction --- */
+    /* ------------------- */
+
+    override protected function partRemoved(partName:String, instance:Object):void {
+        switch (instance) {
+            case messageList:
+                messageList.dataGroup.removeEventListener(RendererExistenceEvent.RENDERER_ADD, handleItemRendererAdded);
+                messageList.removeEventListener(IndexChangeEvent.CHANGE, handleMessageSelection);
+                messageList.removeEventListener(ResizeEvent.RESIZE, handleListResize);
+                break;
+            case rendererDestructionEffect:
+                rendererDestructionEffect.removeEventListener(EffectEvent.EFFECT_END, handleDestructionEffectEnd);
+                break;
+        }
+
+        super.partRemoved(partName, instance);
+    }
+
 }
 }
