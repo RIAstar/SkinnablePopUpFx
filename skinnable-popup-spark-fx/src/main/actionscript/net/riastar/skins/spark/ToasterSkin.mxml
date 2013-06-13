@@ -16,10 +16,36 @@
 - OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
 
-<componentPackage>
+<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009"
+             xmlns:s="library://ns.adobe.com/flex/spark">
 
-    <component id="Alert" class="net.riastar.components.Alert"/>
-    <component id="SkinnablePopUp" class="net.riastar.components.SkinnablePopUp"/>
-    <component id="Toaster" class="net.riastar.components.Toaster"/>
+    <fx:Metadata>
+        [HostComponent("net.riastar.components.Toaster")]
+    </fx:Metadata>
 
-</componentPackage>
+    <fx:Declarations>
+        <s:Fade id="rendererCreationEffect" alphaFrom="0" alphaTo="1"/>
+        <s:Fade id="rendererDestructionEffect" alphaFrom="1" alphaTo="0"/>
+    </fx:Declarations>
+
+    <s:states>
+        <s:State name="open"/>
+        <s:State name="closed"/>
+    </s:states>
+
+    <!--
+    When the popup has just been opened, the List doesn't measure its height correctly;
+    this is why we set a 'minHeight' on the List as a quick workaround.
+     -->
+    <s:List id="messageList" includeIn="open" left="0" right="0" top="0" bottom="0" minHeight="150"
+            borderVisible="false" contentBackgroundAlpha="0"
+            horizontalScrollPolicy="off" verticalScrollPolicy="off"
+            itemRenderer="net.riastar.skins.spark.ToastRenderer">
+
+        <s:layout>
+            <s:VerticalLayout gap="7" horizontalAlign="justify" variableRowHeight="true"/>
+        </s:layout>
+    </s:List>
+
+</s:SparkSkin>
+

@@ -25,3 +25,7 @@ rs|Alert {
     dropShadowVisible: true;
     skinClass: ClassReference("net.riastar.skins.spark.AlertSkin");
 }
+
+rs|Toaster {
+    skinClass: ClassReference("net.riastar.skins.spark.ToasterSkin");
+}
