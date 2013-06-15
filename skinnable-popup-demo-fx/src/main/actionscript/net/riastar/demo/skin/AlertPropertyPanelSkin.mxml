@@ -21,7 +21,7 @@
         xmlns:mx="library://ns.adobe.com/flex/mx">
 
     <fx:Metadata>
-        [HostComponent("net.riastar.demo.view.PropertyPanel")]
+        [HostComponent("net.riastar.demo.view.AlertPropertyPanel")]
     </fx:Metadata>
 
     <fx:Script>

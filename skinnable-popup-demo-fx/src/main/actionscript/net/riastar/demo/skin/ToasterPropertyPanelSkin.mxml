@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- Copyright (c) 2013 Maxime Cowez a.k.a. RIAstar.
+-
+- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+- documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
+- rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+- permit persons to whom the Software is furnished to do so, subject to the following conditions:
+-
+- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
+- Software.
+-
+- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+- WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
+- OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+- OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009"
+        xmlns:s="library://ns.adobe.com/flex/spark">
+
+    <fx:Metadata>
+        [HostComponent("net.riastar.demo.view.ToasterPropertyPanel")]
+    </fx:Metadata>
+
+    <fx:Declarations>
+        <s:RadioButtonGroup id="itemRendererRadio" selectedValue="@{hostComponent.itemRenderer}"/>
+    </fx:Declarations>
+
+    <s:layout>
+        <s:HorizontalLayout gap="25" paddingLeft="15" paddingRight="15" paddingTop="15" paddingBottom="15"/>
+    </s:layout>
+
+    <s:VGroup gap="12">
+        <s:Label text="Properties" fontSize="16" fontWeight="bold"/>
+
+        <s:VGroup>
+            <s:HGroup>
+                <s:Label text="showTime" fontWeight="bold"/>
+                <s:Label text="({hostComponent.showTime} ms)"/>
+            </s:HGroup>
+
+            <s:HSlider value="@{hostComponent.showTime}" width="100%"
+                       stepSize="100" minimum="0" maximum="20000"/>
+        </s:VGroup>
+
+        <s:VGroup>
+            <s:Label text="itemRenderer" fontWeight="bold"/>
+            <s:HGroup>
+                <s:RadioButton label="default" value="{hostComponent.defaultItemRenderer}"
+                               groupName="itemRendererRadio"/>
+                <s:RadioButton label="custom" value="{new ClassFactory(CustomToastItemRenderer)}"
+                               groupName="itemRendererRadio"/>
+            </s:HGroup>
+        </s:VGroup>
+
+        <s:VGroup>
+            <s:Label text="top" fontWeight="bold"/>
+            <s:NumericStepper value="@{hostComponent._top}" maximum="100" stepSize="1"/>
+        </s:VGroup>
+
+        <s:VGroup>
+            <s:Label text="verticalCenter" fontWeight="bold"/>
+            <s:NumericStepper value="@{hostComponent._verticalCenter}" maximum="100" stepSize="1"/>
+        </s:VGroup>
+
+        <s:VGroup>
+            <s:Label text="bottom" fontWeight="bold"/>
+            <s:NumericStepper value="@{hostComponent._bottom}" maximum="100" stepSize="1"/>
+        </s:VGroup>
+
+        <s:VGroup>
+            <s:Label text="left" fontWeight="bold"/>
+            <s:NumericStepper value="@{hostComponent._left}" maximum="100" stepSize="1"/>
+        </s:VGroup>
+
+        <s:VGroup>
+            <s:Label text="horizontalCenter" fontWeight="bold"/>
+            <s:NumericStepper value="@{hostComponent._horizontalCenter}" maximum="100" stepSize="1"/>
+        </s:VGroup>
+
+        <s:VGroup>
+            <s:Label text="right" fontWeight="bold"/>
+            <s:NumericStepper value="@{hostComponent._right}" maximum="100" stepSize="1"/>
+        </s:VGroup>
+    </s:VGroup>
+
+    <s:Line height="100%">
+        <s:stroke>
+            <s:SolidColorStroke color="0xdddddd"/>
+        </s:stroke>
+    </s:Line>
+
+    <s:VGroup gap="25">
+        <s:Label text="Styles" fontSize="16" fontWeight="bold"/>
+        <s:Label text="None yet"/>
+    </s:VGroup>
+
+</s:Skin>

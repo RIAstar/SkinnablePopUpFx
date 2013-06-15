@@ -28,13 +28,13 @@ import net.riastar.demo.skin.CustomAlertSkin;
 import spark.components.TextArea;
 
 
-public class CodeArea extends TextArea {
+public class AlertCodeArea extends TextArea {
 
-    private var _properties:PropertyPanel;
-    public function get properties():PropertyPanel {
+    private var _properties:AlertPropertyPanel;
+    public function get properties():AlertPropertyPanel {
         return _properties;
     }
-    public function set properties(value:PropertyPanel):void {
+    public function set properties(value:AlertPropertyPanel):void {
         if (_properties) _properties.removeEventListener(PropertyChangeEvent.PROPERTY_CHANGE, handlePropertyChange);
         _properties = value;
         invalidateProperties();

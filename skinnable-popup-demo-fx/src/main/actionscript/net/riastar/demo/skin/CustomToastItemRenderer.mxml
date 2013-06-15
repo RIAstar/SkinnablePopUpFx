@@ -16,24 +16,8 @@
 - OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
 
-<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009"
-        xmlns:s="library://ns.adobe.com/flex/spark"
-        visible.closed="false">
-
-    <fx:Metadata>
-        [HostComponent("net.riastar.components.Alert")]
-    </fx:Metadata>
-
-    <s:states>
-        <s:State name="open"/>
-        <s:State name="closed"/>
-    </s:states>
-
-    <s:transitions>
-        <s:Transition fromState="*" toState="*" autoReverse="true">
-            <s:Fade duration="150" target="{this}"/>
-        </s:Transition>
-    </s:transitions>
+<s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009"
+                xmlns:s="library://ns.adobe.com/flex/spark">
 
     <s:Rect id="shadow" left="1" right="1" top="1" bottom="4" radiusX="5" radiusY="5">
         <s:fill>
@@ -50,15 +34,7 @@
         </s:fill>
     </s:Rect>
 
-    <s:VGroup color="0xffffff" gap="20" left="20" right="20" top="20" bottom="20">
-        <s:Label id="titleDisplay" fontSize="18" fontWeight="bold"/>
-        <s:RichText id="textDisplay" width="100%"/>
+    <s:Label id="labelDisplay" color="0xffffff" fontWeight="bold"
+             left="20" right="20" top="21" bottom="20"/>
 
-        <s:HGroup horizontalAlign="center" width="100%">
-            <s:Button id="commitButton" skinClass="net.riastar.demo.skin.LinkButtonSkin"/>
-            <s:Button id="discardButton" skinClass="net.riastar.demo.skin.LinkButtonSkin"/>
-            <s:Button id="cancelButton" skinClass="net.riastar.demo.skin.LinkButtonSkin"/>
-        </s:HGroup>
-    </s:VGroup>
-
-</s:Skin>
+</s:ItemRenderer>

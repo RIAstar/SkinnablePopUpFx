@@ -25,7 +25,7 @@ import net.riastar.skins.spark.AlertSkin;
 import spark.components.supportClasses.SkinnableComponent;
 
 
-public class PropertyPanel extends SkinnableComponent {
+public class AlertPropertyPanel extends SkinnableComponent {
 
     //properties
 
