@@ -64,7 +64,7 @@ public class Toaster extends SkinnablePopUp {
 
     public var showTime:int = 5000;
 
-    private var _labelField:String;
+    private var _labelField:String = "label";
     public function get labelField():String { return _labelField; }
     public function set labelField(value:String):void {
         _labelField = value;
