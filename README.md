@@ -61,6 +61,11 @@ Alert extends SkinnablePopUp and provides functionality similar to that of the o
  - committable / discardable / cancelable
  - commitLabel / discardLabel / cancelLabel
 
+###Additional styles:
+ - icon
+ - iconPlacement (left,right)
+ - iconAlign (top,middle,bottom)
+
 ##Toaster
 Toaster is another implementation of SkinnablePopUp that provides a means of displaying toast-like messages.
 

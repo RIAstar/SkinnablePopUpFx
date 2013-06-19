@@ -37,6 +37,8 @@
                   cancelLabel="{properties.cancelLabel}"
                   discardLabel="{properties.discardLabel}"
                   icon="{properties.icon}"
+                  iconPlacement="{properties.iconPlacement}"
+                  iconAlign="{properties.iconAlign}"
                   skinClass="{properties._skinClass}"
                   backgroundAlpha="{properties.backgroundAlpha}"
                   backgroundColor="{properties.backgroundColor}"
@@ -79,7 +81,7 @@
         </s:Group>
 
         <v:AlertCodeArea properties="{properties}" width="100%" height="100%"
-                    fontFamily="Courier new" color="0xffffff" contentBackgroundColor="0x272822"/>
+                         fontFamily="Courier new" color="0xffffff" contentBackgroundColor="0x272822"/>
     </s:VGroup>
 
 </s:Group>

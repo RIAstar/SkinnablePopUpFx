@@ -36,6 +36,8 @@
         <s:RadioButtonGroup id="discardableRadio" selectedValue="@{hostComponent.discardable}"/>
         <s:RadioButtonGroup id="cancelableRadio" selectedValue="@{hostComponent.cancelable}"/>
         <s:RadioButtonGroup id="iconRadio" selectedValue="@{hostComponent.icon}"/>
+        <s:RadioButtonGroup id="iconPlacementRadio" selectedValue="@{hostComponent.iconPlacement}"/>
+        <s:RadioButtonGroup id="iconAlignRadio" selectedValue="@{hostComponent.iconAlign}"/>
         <s:RadioButtonGroup id="skinClassRadio" selectedValue="@{hostComponent._skinClass}"/>
         <s:RadioButtonGroup id="borderVisibleRadio" selectedValue="@{hostComponent.borderVisible}"/>
         <s:RadioButtonGroup id="dropShadowVisibleRadio" selectedValue="@{hostComponent.dropShadowVisible}"/>
@@ -138,13 +140,30 @@
     <s:VGroup gap="25">
         <s:Label text="Styles" fontSize="16" fontWeight="bold"/>
 
-        <s:VGroup>
+        <s:VGroup enabled="{skinClassRadio.selectedValue == AlertSkin}">
             <s:Label text="icon" fontWeight="bold"/>
             <s:HGroup>
-                <s:RadioButton label="none" value="{null}" selected="true"
+                <s:RadioButton label="none" value="{false}"
                                groupName="iconRadio"/>
                 <s:RadioButton label="custom" value="@Embed('/../gfx/warning_48.png')"
                                groupName="iconRadio"/>
+            </s:HGroup>
+        </s:VGroup>
+
+        <s:VGroup enabled="{skinClassRadio.selectedValue == AlertSkin}">
+            <s:Label text="iconPlacement" fontWeight="bold"/>
+            <s:HGroup>
+                <s:RadioButton label="left" value="left" groupName="iconPlacementRadio"/>
+                <s:RadioButton label="right" value="right" groupName="iconPlacementRadio"/>
+            </s:HGroup>
+        </s:VGroup>
+
+        <s:VGroup enabled="{skinClassRadio.selectedValue == AlertSkin}">
+            <s:Label text="iconAlign" fontWeight="bold"/>
+            <s:HGroup>
+                <s:RadioButton label="top" value="top" groupName="iconAlignRadio"/>
+                <s:RadioButton label="middle" value="middle" groupName="iconAlignRadio"/>
+                <s:RadioButton label="bottom" value="bottom" groupName="iconAlignRadio"/>
             </s:HGroup>
         </s:VGroup>
 

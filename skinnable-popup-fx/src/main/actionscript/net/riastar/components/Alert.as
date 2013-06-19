@@ -22,8 +22,6 @@ package net.riastar.components {
 
 import flash.events.MouseEvent;
 
-import mx.core.FlexVersion;
-
 import mx.core.IVisualElement;
 
 import net.riastar.components.supportClasses.PopUpCenteredPosition;
@@ -35,6 +33,8 @@ import spark.primitives.BitmapImage;
 
 
 [Style(name="icon", type="Object", inherit="no")]
+[Style(name="iconPlacement", type="String", enumeration="right,left", inherit="no", theme="spark, mobile")]
+[Style(name="iconAlign", type="String", enumeration="top,middle,bottom", inherit="no", theme="spark, mobile")]
 
 public class Alert extends SkinnablePopUp {
 

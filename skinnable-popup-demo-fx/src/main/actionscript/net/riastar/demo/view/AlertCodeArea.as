@@ -47,51 +47,55 @@ public class AlertCodeArea extends TextArea {
 
     override protected function commitProperties():void {
         super.commitProperties();
-        if (!properties) return;
+        if (!_properties) return;
 
-        var props:Array = ['<rs:Alert maxWidth="' + properties.maxPopUpWidth + '"'];
+        var props:Array = ['<rs:Alert maxWidth="' + _properties.maxPopUpWidth + '"'];
 
         //properties
-        if (!properties.modal)
+        if (!_properties.modal)
             props.push('modal="false"');
-        if (properties.title && properties.title.length)
-            props.push('title="' + properties.title + '"');
-        if (properties.text && properties.text.length)
-            props.push('text="' + properties.text + '"');
-        if (!properties.committable)
+        if (_properties.title && _properties.title.length)
+            props.push('title="' + _properties.title + '"');
+        if (_properties.text && _properties.text.length)
+            props.push('text="' + _properties.text + '"');
+        if (!_properties.committable)
             props.push('committable="false"');
-        if (properties.discardable)
+        if (_properties.discardable)
             props.push('discardable="true"');
-        if (properties.cancelable)
+        if (_properties.cancelable)
             props.push('cancelable="true"');
-        if (properties.commitLabel && properties.commitLabel.length)
-            props.push('commitLabel="' + properties.commitLabel + '"');
-        if (properties.discardLabel && properties.discardLabel.length)
-            props.push('discardLabel="' + properties.discardLabel + '"');
-        if (properties.cancelLabel && properties.cancelLabel.length)
-            props.push('cancelLabel="' + properties.cancelLabel + '"');
+        if (_properties.commitLabel && _properties.commitLabel.length)
+            props.push('commitLabel="' + _properties.commitLabel + '"');
+        if (_properties.discardLabel && _properties.discardLabel.length)
+            props.push('discardLabel="' + _properties.discardLabel + '"');
+        if (_properties.cancelLabel && _properties.cancelLabel.length)
+            props.push('cancelLabel="' + _properties.cancelLabel + '"');
 
         //styles
-        if (properties.icon)
-            props.push('icon="@Embed(\'gfx/warning.png\')"');
-        if (properties._skinClass == CustomAlertSkin)
+        if (_properties._skinClass == CustomAlertSkin)
             props.push('skinClass="net.riastar.demo.skin.CustomAlertSkin"');
         else {
-            if (properties.backgroundAlpha != 1)
-                props.push('backgroundAlpha="' + properties.backgroundAlpha + '"');
-            if (properties.backgroundColor != 0xffffff)
-                props.push('backgroundColor="0x' + properties.backgroundColor.toString(16) + '"');
-            if (properties.borderAlpha != .5)
-                props.push('borderAlpha="' + properties.borderAlpha + '"');
-            if (properties.borderColor != 0x000000)
-                props.push('borderColor="0x' + properties.borderColor.toString(16) + '"');
-            if (properties.borderVisible == false)
+            if (_properties.icon)
+                props.push('icon="@Embed(\'gfx/warning.png\')"');
+            if (_properties.iconPlacement != "left")
+                props.push('iconPlacement="' + _properties.iconPlacement + '"');
+            if (_properties.iconAlign != "middle")
+                props.push('iconAlign="' + _properties.iconAlign + '"');
+            if (_properties.backgroundAlpha != 1)
+                props.push('backgroundAlpha="' + _properties.backgroundAlpha + '"');
+            if (_properties.backgroundColor != 0xffffff)
+                props.push('backgroundColor="0x' + _properties.backgroundColor.toString(16) + '"');
+            if (_properties.borderAlpha != .5)
+                props.push('borderAlpha="' + _properties.borderAlpha + '"');
+            if (_properties.borderColor != 0x000000)
+                props.push('borderColor="0x' + _properties.borderColor.toString(16) + '"');
+            if (_properties.borderVisible == false)
                 props.push('borderVisible="false"');
-            if (properties.cornerRadius != 0)
-                props.push('cornerRadius="' + properties.cornerRadius + '"');
-            if (properties.color != 0x000000)
-                props.push('color="0x' + properties.color.toString(16) + '"');
-            if (properties.dropShadowVisible == false)
+            if (_properties.cornerRadius != 0)
+                props.push('cornerRadius="' + _properties.cornerRadius + '"');
+            if (_properties.color != 0x000000)
+                props.push('color="0x' + _properties.color.toString(16) + '"');
+            if (_properties.dropShadowVisible == false)
                 props.push('dropShadowVisible="false"');
         }
 
