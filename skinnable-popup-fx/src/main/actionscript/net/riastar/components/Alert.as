@@ -28,7 +28,7 @@ import net.riastar.components.supportClasses.PopUpCenteredPosition;
 import net.riastar.events.AlertResponse;
 
 import spark.components.supportClasses.ButtonBase;
-import spark.components.supportClasses.TextBase;
+import spark.core.IDisplayText;
 
 
 public class Alert extends SkinnablePopUp {
@@ -38,10 +38,10 @@ public class Alert extends SkinnablePopUp {
     /* ----------------- */
 
     [SkinPart(required="true")]
-    public var textDisplay:TextBase;
+    public var textDisplay:IDisplayText;
 
     [SkinPart(required="false")]
-    public var titleDisplay:TextBase;
+    public var titleDisplay:IDisplayText;
 
     [SkinPart(required="false")]
     public var commitButton:IVisualElement;
