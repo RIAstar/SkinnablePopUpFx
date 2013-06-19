@@ -81,7 +81,8 @@
             backgroundFill.color = getStyle("backgroundColor");
             backgroundFill.alpha = getStyle("backgroundAlpha");
 
-            super.updateDisplayList(unscaledWidth, unscaledHeight);
+            //there seems to be some measurement bug, which is why we pass the measured size here
+            super.updateDisplayList(getExplicitOrMeasuredWidth(), getExplicitOrMeasuredHeight());
         }
 
         private function setPartCornerRadii(target:Rect):void {
@@ -150,8 +151,12 @@
                      verticalAlign="middle" textAlign="start" fontWeight="bold"/>
         </s:Group>
 
-        <s:RichText id="textDisplay" width="100%" height="100%"
-                    paddingLeft="9" paddingRight="9" paddingTop="9" paddingBottom="9"/>
+        <s:HGroup width="100%" height="100%" gap="9"
+                  paddingLeft="9" paddingRight="9" paddingTop="9" paddingBottom="9">
+
+            <s:BitmapImage id="iconDisplay"/>
+            <s:RichText id="textDisplay" width="100%" height="100%"/>
+        </s:HGroup>
 
         <s:HGroup id="buttonGroup" width="100%" horizontalAlign="center"
                   paddingLeft="9" paddingRight="9" paddingBottom="9">

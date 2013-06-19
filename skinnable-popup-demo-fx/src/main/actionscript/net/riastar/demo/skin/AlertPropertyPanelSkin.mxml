@@ -35,6 +35,7 @@
         <s:RadioButtonGroup id="committableRadio" selectedValue="@{hostComponent.committable}"/>
         <s:RadioButtonGroup id="discardableRadio" selectedValue="@{hostComponent.discardable}"/>
         <s:RadioButtonGroup id="cancelableRadio" selectedValue="@{hostComponent.cancelable}"/>
+        <s:RadioButtonGroup id="iconRadio" selectedValue="@{hostComponent.icon}"/>
         <s:RadioButtonGroup id="skinClassRadio" selectedValue="@{hostComponent._skinClass}"/>
         <s:RadioButtonGroup id="borderVisibleRadio" selectedValue="@{hostComponent.borderVisible}"/>
         <s:RadioButtonGroup id="dropShadowVisibleRadio" selectedValue="@{hostComponent.dropShadowVisible}"/>
@@ -136,6 +137,16 @@
 
     <s:VGroup gap="25">
         <s:Label text="Styles" fontSize="16" fontWeight="bold"/>
+
+        <s:VGroup>
+            <s:Label text="icon" fontWeight="bold"/>
+            <s:HGroup>
+                <s:RadioButton label="none" value="{null}" selected="true"
+                               groupName="iconRadio"/>
+                <s:RadioButton label="custom" value="@Embed('/../gfx/warning_48.png')"
+                               groupName="iconRadio"/>
+            </s:HGroup>
+        </s:VGroup>
 
         <s:VGroup>
             <s:Label text="skinClass" fontWeight="bold"/>

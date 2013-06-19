@@ -22,6 +22,8 @@ package net.riastar.components {
 
 import flash.events.MouseEvent;
 
+import mx.core.FlexVersion;
+
 import mx.core.IVisualElement;
 
 import net.riastar.components.supportClasses.PopUpCenteredPosition;
@@ -29,7 +31,10 @@ import net.riastar.events.AlertResponse;
 
 import spark.components.supportClasses.ButtonBase;
 import spark.core.IDisplayText;
+import spark.primitives.BitmapImage;
 
+
+[Style(name="icon", type="Object", inherit="no")]
 
 public class Alert extends SkinnablePopUp {
 
@@ -51,6 +56,9 @@ public class Alert extends SkinnablePopUp {
 
     [SkinPart(required="false")]
     public var cancelButton:IVisualElement;
+
+    [SkinPart(required="false")]
+    public var iconDisplay:BitmapImage;
 
 
     /* ------------------ */
@@ -143,6 +151,9 @@ public class Alert extends SkinnablePopUp {
             case cancelButton:
                 cancelButton.addEventListener(MouseEvent.CLICK, handleCancelButtonClick);
                 break;
+            case iconDisplay:
+                iconDisplay.includeInLayout = iconDisplay.source = getStyle("icon");
+                break;
         }
 
         invalidateProperties();
@@ -187,6 +198,13 @@ public class Alert extends SkinnablePopUp {
         button.visible = button.includeInLayout = active;
         if (active && button is ButtonBase)
             ButtonBase(button).label = this[label] || resourceManager.getString('component', label);
+    }
+
+    override public function styleChanged(styleProp:String):void {
+        if (iconDisplay && (!styleProp || styleProp == "styleName" || styleProp == "icon"))
+            iconDisplay.includeInLayout = iconDisplay.source = getStyle("icon");
+
+        super.styleChanged(styleProp);
     }
 
 

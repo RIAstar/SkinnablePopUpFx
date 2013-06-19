@@ -72,6 +72,8 @@ public class AlertCodeArea extends TextArea {
             props.push('cancelLabel="' + properties.cancelLabel + '"');
 
         //styles
+        if (properties.icon)
+            props.push('icon="@Embed(\'gfx/warning.png\')"');
         if (properties._skinClass == CustomAlertSkin)
             props.push('skinClass="net.riastar.demo.skin.CustomAlertSkin"');
         else {

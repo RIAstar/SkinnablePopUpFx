@@ -75,6 +75,9 @@ public class AlertPropertyPanel extends SkinnableComponent {
     //styles
 
     [Bindable]
+    public var icon:* = null;
+
+    [Bindable]
     public var _skinClass:* = AlertSkin;
 
     [Bindable]
